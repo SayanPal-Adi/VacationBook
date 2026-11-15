@@ -1,5 +1,5 @@
 
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, request
 from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError
 
@@ -12,19 +12,46 @@ def create_app():
 
     app = Flask(__name__)
 
-    # Load application configuration
+    # ------------------------------------------
+    # APPLICATION CONFIGURATION
+    # ------------------------------------------
     app.config.from_object(Config)
 
-    # Initialize Flask extensions
+    # ------------------------------------------
+    # INITIALIZE EXTENSIONS
+    # ------------------------------------------
     db.init_app(app)
     migrate.init_app(app, db)
 
     # ------------------------------------------
-    # HOME PAGE
+    # HOMEPAGE
     # ------------------------------------------
     @app.route("/", methods=["GET"])
     def home():
         return render_template("index.html")
+
+    # ------------------------------------------
+    # HOTEL SEARCH PAGE
+    # ------------------------------------------
+    @app.route("/search", methods=["GET"])
+    def search_hotels():
+        return render_template(
+            "hotels.html",
+            destination=request.args.get("destination", ""),
+            checkin=request.args.get("checkin", ""),
+            checkout=request.args.get("checkout", ""),
+            guests=request.args.get("guests", 2)
+        )
+
+    # ------------------------------------------
+    # APPLICATION HEALTH CHECK
+    # ------------------------------------------
+    @app.route("/health", methods=["GET"])
+    def application_health():
+        return jsonify({
+            "application": "VacationBook",
+            "status": "running"
+        }), 200
 
     # ------------------------------------------
     # DATABASE HEALTH CHECK
@@ -49,15 +76,5 @@ def create_app():
                 "database": "disconnected",
                 "status": "unhealthy"
             }), 503
-
-    # ------------------------------------------
-    # APPLICATION STATUS
-    # ------------------------------------------
-    @app.route("/health", methods=["GET"])
-    def application_health():
-        return jsonify({
-            "application": "VacationBook",
-            "status": "running"
-        }), 200
 
     return app
