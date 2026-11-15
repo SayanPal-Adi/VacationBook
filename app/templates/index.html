@@ -1,0 +1,403 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+VacationBook | Discover Your Next Escape
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+
+        <span class="eyebrow">
+            YOUR JOURNEY BEGINS HERE
+        </span>
+
+        <h1>
+            Find your place<br>
+            <em>in the world.</em>
+        </h1>
+
+        <p>
+            From peaceful escapes to extraordinary destinations,
+            discover stays that make every journey special.
+        </p>
+
+        <a href="#search" class="btn btn-light hero-button">
+            Explore Destinations
+            <span>→</span>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- SEARCH SECTION -->
+<section class="search-section container" id="search">
+
+    <div class="search-heading">
+        <span class="eyebrow">PLAN YOUR NEXT ESCAPE</span>
+        <h2>Where would you like to go?</h2>
+    </div>
+
+    <form class="search-box" id="hotelSearchForm">
+
+        <div class="search-field">
+
+            <label for="destination">Destination</label>
+
+            <input
+                type="text"
+                id="destination"
+                name="destination"
+                placeholder="Where are you going?"
+                required
+            >
+
+        </div>
+
+        <div class="search-divider"></div>
+
+        <div class="search-field">
+
+            <label for="checkin">Check-in</label>
+
+            <input
+                type="date"
+                id="checkin"
+                name="checkin"
+                required
+            >
+
+        </div>
+
+        <div class="search-divider"></div>
+
+        <div class="search-field">
+
+            <label for="checkout">Check-out</label>
+
+            <input
+                type="date"
+                id="checkout"
+                name="checkout"
+                required
+            >
+
+        </div>
+
+        <div class="search-divider"></div>
+
+        <div class="search-field">
+
+            <label for="guests">Guests</label>
+
+            <select id="guests" name="guests">
+                <option value="1">1 Guest</option>
+                <option value="2" selected>2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5 Guests</option>
+                <option value="6">6+ Guests</option>
+            </select>
+
+        </div>
+
+        <button type="submit" class="search-button">
+            Search <span>→</span>
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- DESTINATIONS -->
+<section class="destinations-section section-padding"
+         id="destinations">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="eyebrow">EXPLORE THE WORLD</span>
+                <h2>Popular destinations</h2>
+                <p>
+                    Discover places that inspire your next adventure.
+                </p>
+            </div>
+
+            <a href="#" class="text-link">
+                View all destinations →
+            </a>
+
+        </div>
+
+
+        <div class="destination-grid">
+
+            <article class="destination-card destination-large">
+
+                <img
+                    src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1200"
+                    alt="Beautiful Santorini coastline"
+                >
+
+                <div class="destination-info">
+                    <span>GREECE</span>
+                    <h3>Santorini</h3>
+                </div>
+
+            </article>
+
+
+            <article class="destination-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=900"
+                    alt="New York city skyline"
+                >
+
+                <div class="destination-info">
+                    <span>UNITED STATES</span>
+                    <h3>New York</h3>
+                </div>
+
+            </article>
+
+
+            <article class="destination-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=900"
+                    alt="Dubai skyline"
+                >
+
+                <div class="destination-info">
+                    <span>UNITED ARAB EMIRATES</span>
+                    <h3>Dubai</h3>
+                </div>
+
+            </article>
+
+
+            <article class="destination-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=900"
+                    alt="Bali tropical destination"
+                >
+
+                <div class="destination-info">
+                    <span>INDONESIA</span>
+                    <h3>Bali</h3>
+                </div>
+
+            </article>
+
+
+            <article class="destination-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=900"
+                    alt="Traditional Kyoto streets"
+                >
+
+                <div class="destination-info">
+                    <span>JAPAN</span>
+                    <h3>Kyoto</h3>
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FEATURED STAYS -->
+<section class="featured-section section-padding" id="featured">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="eyebrow">HANDPICKED FOR YOU</span>
+                <h2>Exceptional places to stay</h2>
+                <p>
+                    A collection of stays worth travelling for.
+                </p>
+            </div>
+
+            <a href="#" class="text-link">
+                Discover more →
+            </a>
+
+        </div>
+
+
+        <div class="hotel-grid">
+
+            <article class="hotel-card">
+
+                <div class="hotel-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=900"
+                        alt="Luxury tropical resort"
+                    >
+                    <span class="hotel-tag">FEATURED</span>
+                </div>
+
+                <div class="hotel-details">
+                    <div class="hotel-location">MALDIVES</div>
+                    <h3>Ocean Pearl Resort</h3>
+                    <p>Private island · Ocean view</p>
+
+                    <div class="hotel-price">
+                        <strong>₹18,500</strong>
+                        <span>/ night</span>
+                    </div>
+                </div>
+
+            </article>
+
+
+            <article class="hotel-card">
+
+                <div class="hotel-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900"
+                        alt="Luxury hotel swimming pool"
+                    >
+                    <span class="hotel-tag">POPULAR</span>
+                </div>
+
+                <div class="hotel-details">
+                    <div class="hotel-location">BALI, INDONESIA</div>
+                    <h3>The Forest Retreat</h3>
+                    <p>Nature escape · Private pool</p>
+
+                    <div class="hotel-price">
+                        <strong>₹12,000</strong>
+                        <span>/ night</span>
+                    </div>
+                </div>
+
+            </article>
+
+
+            <article class="hotel-card">
+
+                <div class="hotel-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=900"
+                        alt="Elegant luxury hotel"
+                    >
+                    <span class="hotel-tag">LUXURY</span>
+                </div>
+
+                <div class="hotel-details">
+                    <div class="hotel-location">DUBAI, UAE</div>
+                    <h3>Azure Grand Hotel</h3>
+                    <p>City centre · Premium suites</p>
+
+                    <div class="hotel-price">
+                        <strong>₹15,000</strong>
+                        <span>/ night</span>
+                    </div>
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT SECTION -->
+<section class="about-section section-padding" id="about">
+
+    <div class="container about-container">
+
+        <div class="about-image">
+            <img
+                src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1200"
+                alt="Peaceful ocean landscape"
+            >
+        </div>
+
+        <div class="about-content">
+
+            <span class="eyebrow">THE VACATIONBOOK EXPERIENCE</span>
+
+            <h2>
+                More than a stay.<br>
+                <em>A feeling.</em>
+            </h2>
+
+            <p>
+                We believe every journey deserves an extraordinary
+                place to begin. VacationBook brings together beautiful
+                destinations and thoughtfully selected stays to make
+                planning your next escape simpler.
+            </p>
+
+            <a href="#search" class="btn btn-dark">
+                Start Exploring →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+
+    <div class="container newsletter-content">
+
+        <span class="eyebrow">A LITTLE INSPIRATION, DELIVERED</span>
+
+        <h2>Let the world come to you.</h2>
+
+        <p>
+            Get travel inspiration and destination ideas
+            delivered to your inbox.
+        </p>
+
+        <form class="newsletter-form" id="newsletterForm">
+
+            <input
+                type="email"
+                placeholder="Enter your email address"
+                aria-label="Email address"
+                required
+            >
+
+            <button type="submit">
+                Subscribe →
+            </button>
+
+        </form>
+
+        <p class="newsletter-message" id="newsletterMessage"></p>
+
+    </div>
+
+</section>
+
+{% endblock %}
