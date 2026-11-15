@@ -1,5 +1,5 @@
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError
 
@@ -20,15 +20,11 @@ def create_app():
     migrate.init_app(app, db)
 
     # ------------------------------------------
-    # HOME ROUTE
+    # HOME PAGE
     # ------------------------------------------
     @app.route("/", methods=["GET"])
     def home():
-        return jsonify({
-            "application": "VacationBook",
-            "message": "Welcome to VacationBook!",
-            "status": "running"
-        }), 200
+        return render_template("index.html")
 
     # ------------------------------------------
     # DATABASE HEALTH CHECK
@@ -53,5 +49,15 @@ def create_app():
                 "database": "disconnected",
                 "status": "unhealthy"
             }), 503
+
+    # ------------------------------------------
+    # APPLICATION STATUS
+    # ------------------------------------------
+    @app.route("/health", methods=["GET"])
+    def application_health():
+        return jsonify({
+            "application": "VacationBook",
+            "status": "running"
+        }), 200
 
     return app
