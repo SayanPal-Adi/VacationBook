@@ -1,0 +1,126 @@
+
+{% extends "base.html" %}
+
+{% block title %}Explore Hotels | VacationBook{% endblock %}
+
+{% block content %}
+
+<section class="hotels-header">
+    <div class="container">
+        <span class="eyebrow">FIND YOUR PERFECT STAY</span>
+        <h1>Explore exceptional stays.</h1>
+        <p>Discover beautiful places for your next journey.</p>
+    </div>
+</section>
+
+<section class="container hotels-page">
+
+    <div class="results-heading">
+        <div>
+            <h2>Available stays</h2>
+            <p>
+                Results for <strong>{{ destination or "All destinations" }}</strong>
+                {% if checkin and checkout %}
+                    · {{ checkin }} to {{ checkout }}
+                {% endif %}
+                · {{ guests or 2 }} guests
+            </p>
+        </div>
+
+        <select id="sortHotels" aria-label="Sort hotels">
+            <option value="recommended">Recommended</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+        </select>
+    </div>
+
+    <div class="hotels-layout">
+
+        <aside class="hotel-filters">
+            <h3>Filters</h3>
+
+            <div class="filter-group">
+                <h4>Price per night</h4>
+                <label><input type="radio" name="price" value="all" checked> All prices</label>
+                <label><input type="radio" name="price" value="5000"> Under ₹5,000</label>
+                <label><input type="radio" name="price" value="10000"> Under ₹10,000</label>
+                <label><input type="radio" name="price" value="20000"> Under ₹20,000</label>
+            </div>
+
+            <div class="filter-group">
+                <h4>Property type</h4>
+                <label><input type="checkbox" name="type" value="Resort"> Resort</label>
+                <label><input type="checkbox" name="type" value="Hotel"> Hotel</label>
+                <label><input type="checkbox" name="type" value="Villa"> Villa</label>
+            </div>
+
+            <button type="button" id="clearFilters" class="clear-filters">
+                Clear filters
+            </button>
+        </aside>
+
+        <div class="hotel-results" id="hotelResults">
+
+            <article class="listing-card" data-price="18500" data-type="Resort">
+                <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=900"
+                     alt="Ocean Pearl Resort">
+
+                <div class="listing-details">
+                    <span class="hotel-location">MALDIVES · RESORT</span>
+                    <h3>Ocean Pearl Resort</h3>
+                    <p>Private island · Ocean view · Swimming pool</p>
+
+                    <div class="listing-bottom">
+                        <span class="listing-price">₹18,500 <small>/ night</small></span>
+                        <a href="#" class="btn btn-dark">View Details →</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="listing-card" data-price="4200" data-type="Hotel">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900"
+                     alt="The Forest Retreat">
+
+                <div class="listing-details">
+                    <span class="hotel-location">BALI · HOTEL</span>
+                    <h3>The Forest Retreat</h3>
+                    <p>Nature escape · Garden view · Restaurant</p>
+
+                    <div class="listing-bottom">
+                        <span class="listing-price">₹4,200 <small>/ night</small></span>
+                        <a href="#" class="btn btn-dark">View Details →</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="listing-card" data-price="12000" data-type="Villa">
+                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=900"
+                     alt="Azure Private Villa">
+
+                <div class="listing-details">
+                    <span class="hotel-location">DUBAI · VILLA</span>
+                    <h3>Azure Private Villa</h3>
+                    <p>Private pool · Luxury interiors · City access</p>
+
+                    <div class="listing-bottom">
+                        <span class="listing-price">₹12,000 <small>/ night</small></span>
+                        <a href="#" class="btn btn-dark">View Details →</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+
+    <p class="no-results" id="noResults" hidden>
+        No hotels match your selected filters.
+    </p>
+
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/hotels.js') }}"></script>
+{% endblock %}
